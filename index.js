@@ -36,9 +36,9 @@ function isStrictStatement(statement) {
          statement.expression.value === 'use strict';
 }
 
-exports.transformAst = function(ast, createVariableName) {
+exports.transformAst = function(ast, createVariableName, exposesVariables) {
   var usedVariables = {};
-  var exposesVariables = false;
+  var exposesVariables = !!exposesVariables;
   var strings = [];
   var stringIndexes = Object.create(null);
   var stringMapIdentifier = identifier('');
